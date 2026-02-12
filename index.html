@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Street Help · care without boundaries</title>
+  <!-- Google Font & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fbfaf8;
+      color: #1e1e1e;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header & navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      background: #0a4b4a;
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 12px rgba(10, 75, 74, 0.12);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      color: #0a4b4a;
+    }
+    .logo-text span {
+      font-weight: 300;
+      color: #e86a5f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-weight: 500;
+      color: #2d3e3e;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #1e3a3a;
+      transition: color 0.2s;
+      font-size: 1.05rem;
+    }
+    .nav-links a:hover {
+      color: #e86a5f;
+    }
+
+    /* main donate button — masked PayPal */
+    .btn-donate-primary {
+      background: #e86a5f;
+      border: none;
+      border-radius: 40px;
+      padding: 14px 38px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 18px rgba(232, 106, 95, 0.25);
+      transition: all 0.25s;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.3);
+      letter-spacing: 0.5px;
+    }
+    .btn-donate-primary i {
+      font-size: 1.2rem;
+    }
+    .btn-donate-primary:hover {
+      background: #d15247;
+      transform: scale(1.02);
+      box-shadow: 0 12px 22px rgba(232, 106, 95, 0.35);
+    }
+    .btn-donate-primary a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 48px;
+      margin: 40px 0 60px;
+    }
+    .hero-text {
+      flex: 1 1 300px;
+    }
+    .hero-text h1 {
+      font-size: 3.1rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #0a4b4a;
+      margin-bottom: 24px;
+    }
+    .hero-text h1 i {
+      color: #e86a5f;
+      font-size: 2.8rem;
+    }
+    .highlight {
+      background: #fae3e0;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      color: #0a4b4a;
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero-para {
+      font-size: 1.2rem;
+      color: #2e4949;
+      margin-bottom: 32px;
+      max-width: 550px;
+    }
+
+    .hero-gallery {
+      flex: 1 1 300px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .gallery-item {
+      background: #e7f0ed;
+      border-radius: 24px;
+      padding: 18px 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .gallery-item:hover {
+      background: white;
+      box-shadow: 0 20px 28px -8px rgba(10,75,74,0.12);
+    }
+    .gallery-icon {
+      font-size: 2.6rem;
+      color: #0a4b4a;
+      margin-bottom: 12px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #cbdad6;
+      color: #386a6a;
+    }
+    .placeholder-img {
+      background: linear-gradient(145deg, #c1d4d0, #dae9e5);
+      width: 100%;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #1f5452;
+      aspect-ratio: 1 / 0.9;
+    }
+    .caption {
+      margin-top: 12px;
+      font-weight: 600;
+      color: #0a4b4a;
+      font-size: 1rem;
+    }
+    .caption small {
+      font-weight: 400;
+      color: #4e6b6a;
+      display: block;
+    }
+
+    /* stats / impact */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 60px 20px 60px 20px;
+      margin: 60px 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .stat-item {
+      text-align: center;
+      flex: 1 1 140px;
+    }
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #0a4b4a;
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      color: #567170;
+      font-weight: 500;
+    }
+
+    /* mission & image gallery */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 650;
+      color: #0a4b4a;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .mission-text {
+      font-size: 1.2rem;
+      color: #2d4a48;
+      max-width: 780px;
+      margin-bottom: 48px;
+    }
+    .photo-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+    .card {
+      background: white;
+      border-radius: 32px;
+      padding: 24px 18px;
+      box-shadow: 0 8px 18px rgba(10,75,74,0.04);
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #f1f1f1;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 28px -10px rgba(10,75,74,0.12);
+      border-color: #e0ecea;
+    }
+    .card-img {
+      width: 100%;
+      background: #dee9e6;
+      border-radius: 20px;
+      aspect-ratio: 1 / 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      color: #1a6765;
+    }
+    .card p {
+      margin-top: 20px;
+      font-weight: 600;
+      color: #1a4a49;
+      font-size: 1.2rem;
+    }
+    .card small {
+      color: #5d7a79;
+      font-weight: 400;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    /* DONATE SECTION (masked paypal button) */
+    .donate-embed {
+      background: linear-gradient(115deg, #0e5e5b 0%, #1b7a72 100%);
+      border-radius: 48px 48px 48px 16px;
+      padding: 60px 40px;
+      margin: 70px 0 60px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .donate-embed-left h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .donate-embed-left p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 500px;
+    }
+    .donate-btn-container {
+      background: white;
+      border-radius: 70px;
+      padding: 6px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    }
+    /* the masked button — your PayPal link */
+    .paypal-mask-btn {
+      background: #ffc439; /* PayPal inspired */
+      border: none;
+      border-radius: 60px;
+      padding: 20px 58px;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #1e2e3e;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+    .paypal-mask-btn i {
+      color: #1e3b5c;
+      font-size: 2rem;
+    }
+    .paypal-mask-btn a {
+      color: #1e2e3e;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .paypal-mask-btn:hover {
+      background: #ffd140;
+      transform: scale(1.02);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 80px;
+      padding: 40px 0 30px;
+      border-top: 2px solid #dbe5e2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      color: #3f6260;
+    }
+    .footer-links i {
+      color: #0a4b4a;
+      font-size: 1.5rem;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+    .footer-links i:hover {
+      color: #e86a5f;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .navbar { flex-direction: column; gap: 20px; }
+      .hero-text h1 { font-size: 2.5rem; }
+      .donate-embed { flex-direction: column; text-align: center; gap: 40px; }
+      .paypal-mask-btn { padding: 16px 36px; font-size: 1.4rem; }
+    }
+    @media (max-width: 550px) {
+      .hero-gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- header with logo and navigation -->
+    <header>
+      <div class="navbar">
+        <div class="logo-area">
+          <div class="logo-icon"><i class="fas fa-hand-heart"></i></div>
+          <div class="logo-text">street<span>help</span></div>
+        </div>
+        <div class="nav-links">
+          <a href="#">home</a>
+          <a href="#">our work</a>
+          <a href="#">stories</a>
+          <a href="#">contact</a>
+        </div>
+        <!-- small donate button in header (also masked) -->
+        <div>
+          <button class="btn-donate-primary">
+            <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-hand-holding-heart"></i> donate now
+            </a>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO section + contextual photos (gallery style) -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="highlight"><i class="fas fa-circle" style="font-size: 0.7rem; color: #e86a5f; margin-right: 6px;"></i> compassion in action</span>
+        <h1>care for homeless, sick & orphans <i class="fas fa-seedling"></i></h1>
+        <p class="hero-para">Street Help meets urgent needs — hot meals, medical aid, education, and the promise of dignity. Your kindness fuels every mission.</p>
+        <!-- big donate masked button (again with PayPal link) -->
+        <button class="btn-donate-primary" style="padding: 16px 44px; font-size: 1.25rem;">
+          <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-paypal"></i> send hope · donate
+          </a>
+        </button>
+      </div>
+      <!-- GALLERY with photos and icons depicting homeless, orphan, sick -->
+      <div class="hero-gallery">
+        <div class="gallery-item">
+          <div class="placeholder-img" style="background: #bedad3;">
+            <i class="fas fa-home" style="color: #195752;"></i>
+          </div>
+          <div class="caption">street outreach <small>warmth & shelter</small></div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-img" style="background: #d6cfb2;">
+            <i class="fas fa-child" style="color: #0a4b4a;"></i>
+          </div>
+          <div class="caption">orphan support <small>education & care</small></div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-img" style="background: #d0c2c0;">
+            <i class="fas fa-stethoscope" style="color: #254e5a;"></i>
+          </div>
+          <div class="caption">medical aid <small>mobile clinics</small></div>
+        </div>
+        <div class="gallery-item">
+          <div class="placeholder-img" style="background: #e6d9cf;">
+            <i class="fas fa-hands-helping" style="color: #3e6562;"></i>
+          </div>
+          <div class="caption">community kitchen <small>hot meals</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS / quick impact figures (with icons) -->
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number">2.8k+</div>
+        <div class="stat-label"><i class="fas fa-people-arrows" style="margin-right: 6px;"></i> people helped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">43</div>
+        <div class="stat-label"><i class="fas fa-tents"></i> shelters supported</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">190+</div>
+        <div class="stat-label"><i class="fas fa-graduation-cap"></i> kids sponsored</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">12</div>
+        <div class="stat-label"><i class="fas fa-ambulance"></i> medical camps</div>
+      </div>
+    </div>
+
+    <!-- MISSION & PHOTO GALLERY ( more images : homeless, orphan, sick ) -->
+    <h2 class="section-title">    where we stand  </h2>
+    <p class="mission-text">We’re a volunteer‑led foundation, born on the street. No red tape, just rapid aid. Every donation becomes a blanket, a dose of medicine, or a schoolbook. <strong>Street Help</strong> is not yet famous — but every act of care writes our story.</p>
+    
+    <div class="photo-showcase">
+      <div class="card">
+        <div class="card-img" style="background: #d3e4e0;">
+          <i class="fas fa-moon"></i> <i class="fas fa-person-shelter" style="margin-left: 8px;"></i>
+        </div>
+        <p>Night care</p>
+        <small>sleeping bags, hygiene kits and trust</small>
+      </div>
+      <div class="card">
+        <div class="card-img" style="background: #ffe2d4;">
+          <i class="fas fa-bowl-food"></i>
+        </div>
+        <p>daily meals</p>
+        <small>300+ meals served every week</small>
+      </div>
+      <div class="card">
+        <div class="card-img" style="background: #fbe8e7;">
+          <i class="fas fa-heart-pulse"></i>
+        </div>
+        <p>health outreach</p>
+        <small>flu shots, wound care, checkups</small>
+      </div>
+      <div class="card">
+        <div class="card-img" style="background: #ccdfd9;">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <p>orphan education</p>
+        <small>after‑school & art therapy</small>
+      </div>
+    </div>
+
+    <!-- SPECIAL DONATE BLOCK – HIGHLIGHTED PayPal button MASKED with "donate" -->
+    <div class="donate-embed">
+      <div class="donate-embed-left">
+        <h2>your donation becomes <br> a lifeline.</h2>
+        <p><i class="fas fa-check-circle" style="color: #ffd966;"></i> 100% goes to food, medicine, and shelter. Zero overhead for now.</p>
+      </div>
+      <div class="donate-btn-container">
+        <!-- MASKED PAYPAL BUTTON — using your direct link. big and visible -->
+        <button class="paypal-mask-btn">
+          <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-paypal fa-lg"></i> donate with PayPal 
+            <i class="fas fa-arrow-right" style="font-size: 1.5rem;"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+
+    <!-- ADDITIONAL DONATE reminder (subtle but contains paypal link too) -->
+    <div style="display: flex; justify-content: center; margin: 32px 0 16px;">
+      <span style="background: #edf3f1; padding: 12px 28px; border-radius: 60px; color: #0a4b4a; font-weight: 500;">
+        <i class="fas fa-heart" style="color: #e86a5f;"></i> 
+        Every share & donation saves lives — 
+        <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" style="color: #0a4b4a; font-weight: 700; text-decoration: underline; text-underline-offset: 4px;">give here</a>
+      </span>
+    </div>
+
+    <!-- FOOTER (simple, with logo and invisible PayPal mask as heart) -->
+    <footer class="footer">
+      <div class="footer-copy">
+        <span style="font-weight: 700; color: #0a4b4a;">street help</span> — foundation (not yet published) <br>© 2025 all care, no borders.
+      </div>
+      <div class="footer-links">
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <!-- another masked donation link: tiny icon leads to paypal -->
+        <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" style="text-decoration: none; color: inherit;">
+          <i class="fas fa-hand-holding-heart" style="margin-left: 20px; color: #e86a5f;"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <!-- subtle note: all PayPal links use the exact provided URL, masked as donate buttons -->
+</body>
+</html>

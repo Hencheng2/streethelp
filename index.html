@@ -6,7 +6,7 @@
   <title>Street Help · compassion in action</title>
   <!-- Google Font & base reset -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free) - crisp icons -->
+  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -28,7 +28,7 @@
       padding: 0 28px;
     }
 
-    /* ---------- STREET HELP LOGO (strong, modern) ---------- */
+    /* ---------- STREET HELP LOGO ---------- */
     .logo-block {
       display: flex;
       align-items: center;
@@ -126,7 +126,7 @@
       box-shadow: 0 14px 26px rgba(214, 114, 94, 0.4);
     }
 
-    /* HERO section — strong visual gallery with rich photo-like icons */
+    /* HERO section */
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -168,7 +168,7 @@
       margin-bottom: 36px;
     }
 
-    /* GALLERY — vivid figures / photo-like placeholders with rich colors */
+    /* GALLERY — vivid figures */
     .hero-gallery {
       flex: 1 1 340px;
       display: grid;
@@ -180,7 +180,7 @@
       border-radius: 28px;
       padding: 22px 16px;
       box-shadow: 0 12px 28px -8px rgba(28, 78, 75, 0.08);
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+      transition: all 0.3s;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -203,7 +203,6 @@
       font-size: 3.4rem;
       color: #1d6d68;
       margin-bottom: 12px;
-      box-shadow: inset 0 -2px 0 rgba(0,0,0,0.02);
     }
     .fig-caption {
       font-weight: 700;
@@ -218,7 +217,7 @@
       margin-top: 6px;
     }
 
-    /* stats / pillars */
+    /* stats */
     .stats-wrap {
       display: flex;
       justify-content: space-between;
@@ -308,7 +307,7 @@
       font-weight: 400;
     }
 
-    /* ---------- STORIES SECTION (new) ---------- */
+    /* ---------- STORIES SECTION (anonymous, name-free) ---------- */
     .stories-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -335,7 +334,7 @@
       margin-bottom: 16px;
     }
     .story-card h3 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #0c4d4b;
       margin-bottom: 12px;
@@ -354,26 +353,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       color: #0a5e5a;
       margin-top: 8px;
       font-weight: 500;
+      gap: 8px;
     }
 
-    /* ---------- GET INVOLVED SECTION (new) ---------- */
+    /* ---------- GET INVOLVED SECTION (only PayPal call-to-action, no dead buttons) ---------- */
     .involved-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 32px;
       margin: 40px 0 60px;
     }
     .involved-item {
       background: #f1f9f7;
       border-radius: 40px;
-      padding: 38px 24px;
+      padding: 42px 28px;
       text-align: center;
       transition: 0.25s;
       border: 1px solid #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .involved-item:hover {
       background: white;
@@ -393,26 +396,33 @@
     }
     .involved-item p {
       color: #35615e;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       font-size: 1.1rem;
     }
-    .involved-btn {
-      background: transparent;
-      border: 2px solid #0c4d4b;
-      border-radius: 60px;
-      padding: 12px 28px;
-      font-weight: 700;
-      color: #0c4d4b;
-      transition: all 0.2s;
+    /* direct PayPal link — only action, no useless buttons */
+    .donate-link {
       display: inline-block;
-      text-decoration: none;
-    }
-    .involved-btn:hover {
-      background: #0c4d4b;
+      background: #d6725e;
+      border-radius: 60px;
+      padding: 16px 36px;
+      font-weight: 700;
+      font-size: 1.2rem;
       color: white;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 6px 14px rgba(214,114,94,0.3);
+    }
+    .donate-link i {
+      margin-right: 10px;
+    }
+    .donate-link:hover {
+      background: #bc5442;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(214,114,94,0.4);
     }
 
-    /* PREMIUM DONATE SECTION — bold PayPal masked button */
+    /* PREMIUM DONATE SECTION — PayPal masked mega button */
     .donate-premium {
       background: radial-gradient(145% 140% at 0% 0%, #1a6e68, #0c4d4b);
       border-radius: 48px 48px 48px 16px;
@@ -463,7 +473,7 @@
       border-color: #ffdcaa;
     }
 
-    /* footer — social icons ready for links */
+    /* footer */
     .footer {
       margin-top: 80px;
       padding: 40px 0 30px;
@@ -503,7 +513,7 @@
 <body>
   <div class="container">
 
-    <!-- HEADER with refined logo and primary donate -->
+    <!-- HEADER with logo and primary donate -->
     <header>
       <div class="navbar">
         <div class="logo-block">
@@ -529,7 +539,7 @@
       </div>
     </header>
 
-    <!-- HERO with powerful figures/‘photos’ for homeless, sick, orphan -->
+    <!-- HERO with figures for homeless, sick, orphan -->
     <section class="hero">
       <div class="hero-text">
         <span class="hero-tag"><i class="fas fa-circle" style="color: #d6725e; font-size: 0.7rem; margin-right: 6px;"></i> STREET HELP FOUNDATION</span>
@@ -543,7 +553,7 @@
         </button>
       </div>
 
-      <!-- GALLERY – expressive, photo-like figures representing core mission -->
+      <!-- GALLERY – expressive figures -->
       <div class="hero-gallery">
         <div class="gallery-figure">
           <div class="fig-img" style="background: #cbe0db;">
@@ -584,7 +594,7 @@
       </div>
     </section>
 
-    <!-- IMPACT NUMBERS – real reach -->
+    <!-- IMPACT NUMBERS -->
     <div class="stats-wrap">
       <div class="stat-item">
         <div class="stat-num">3.2k+</div>
@@ -604,7 +614,7 @@
       </div>
     </div>
 
-    <!-- CORE WORK — photo/icon gallery — homeless, sick, orphans, community -->
+    <!-- CORE WORK -->
     <h2 class="section-title">   where every gift goes  </h2>
     <p class="mission-statement">We are a volunteer‑powered foundation. No bureaucracy, only rapid care. From night shelters to school fees — street help is immediate help.</p>
     
@@ -639,71 +649,71 @@
       </div>
     </div>
 
-    <!-- ===== STORIES SECTION (NEW) ===== -->
+    <!-- ===== STORIES SECTION — anonymous, no names ===== -->
     <section id="stories-section" style="scroll-margin-top: 30px;">
       <h2 class="section-title" style="margin-bottom: 8px;">   stories from the street  </h2>
-      <p class="mission-statement" style="margin-bottom: 24px;">Hope has many faces. Meet a few people who found warmth, care, and a second chance.</p>
+      <p class="mission-statement" style="margin-bottom: 24px;">Hope has many faces. Every day, someone finds warmth, care, and a second chance.</p>
       
       <div class="stories-grid">
         <!-- story 1: homeless -->
         <div class="story-card">
           <div class="story-icon"><i class="fas fa-person-booth"></i></div>
-          <h3>Marcus found shelter</h3>
-          <p>After two years on the streets, Marcus now sleeps safely and works at our community kitchen. “Street Help didn’t just give me a bed — they saw me.”</p>
+          <h3>a place to sleep</h3>
+          <p>After years on the pavement, a warm bed and a steady meal changed everything. Now that person helps serve others at our community kitchen.</p>
           <div class="story-photo" style="background: #cbdad6;">
-            <i class="fas fa-home" style="color: #0c4d4b;"></i>  winter outreach
+            <i class="fas fa-home" style="color: #0c4d4b;"></i>  winter outreach
           </div>
         </div>
         <!-- story 2: orphan -->
         <div class="story-card">
           <div class="story-icon"><i class="fas fa-child"></i></div>
-          <h3>Amina’s first books</h3>
-          <p>Eight‑year‑old Amina had never owned a storybook. Now she’s in our after‑school program and dreams of becoming a teacher.</p>
+          <h3>first books, big dreams</h3>
+          <p>A child who never owned a storybook now reads aloud in our after‑school program. Small gifts build big futures.</p>
           <div class="story-photo" style="background: #f3ded2;">
-            <i class="fas fa-book-open" style="color: #b45141;"></i>  education kit
+            <i class="fas fa-book-open" style="color: #b45141;"></i>  education kit
           </div>
         </div>
         <!-- story 3: sick / medical -->
         <div class="story-card">
           <div class="story-icon"><i class="fas fa-lungs"></i></div>
-          <h3>Mr. Chen’s recovery</h3>
-          <p>Our mobile clinic treated his chronic cough and connected him with free medication. “They didn’t ask for money — just cared.”</p>
+          <h3>care without questions</h3>
+          <p>A chronic cough, no money, no insurance. Our mobile clinic provided treatment and dignity — no paperwork, just help.</p>
           <div class="story-photo" style="background: #d9e3d9;">
-            <i class="fas fa-stethoscope"></i>  mobile clinic
+            <i class="fas fa-stethoscope"></i>  mobile clinic
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== GET INVOLVED SECTION (NEW) ===== -->
+    <!-- ===== GET INVOLVED SECTION — only meaningful action: donate ===== -->
     <section id="getinvolved-section" style="scroll-margin-top: 30px;">
       <h2 class="section-title" style="margin-top: 40px;">   get involved  </h2>
-      <p class="mission-statement">Street Help runs on collective heartpower. No contribution is too small — and you don’t need to be on the street to make a difference.</p>
+      <p class="mission-statement">Street Help runs on collective heartpower. No contribution is too small — every act of giving fuels immediate aid.</p>
       
       <div class="involved-cards">
         <div class="involved-item">
           <div class="involved-icon"><i class="fas fa-clock"></i></div>
           <h4>volunteer</h4>
-          <p>Serve meals, mentor kids, or support our medical outreach. Shifts flexible, impact immediate.</p>
-          <a href="#" class="involved-btn">sign up →</a>
+          <p>Serve meals, mentor kids, support medical outreach. Your time changes lives.</p>
+          <!-- direct PayPal link — no useless button, real action -->
+          <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" class="donate-link"><i class="fas fa-heart"></i> support our work</a>
         </div>
         <div class="involved-item">
           <div class="involved-icon"><i class="fas fa-box-open"></i></div>
           <h4>donate goods</h4>
-          <p>Blankets, non‑perishable food, school supplies. Drop‑off or host a drive.</p>
-          <a href="#" class="involved-btn">offer items →</a>
+          <p>Blankets, food, school supplies. Your donations reach the street within hours.</p>
+          <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" class="donate-link"><i class="fas fa-gift"></i> fund essentials</a>
         </div>
         <div class="involved-item">
           <div class="involved-icon"><i class="fas fa-hand-holding-usd"></i></div>
           <h4>monthly giving</h4>
-          <p>Steady support changes everything. Join our sustainer circle.</p>
-          <!-- masked PayPal also in involved -->
-          <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" class="involved-btn" style="border-color:#d6725e; color:#d6725e;">become a donor</a>
+          <p>Steady, reliable support. Become a sustainer and fuel rescue every day.</p>
+          <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" class="donate-link"><i class="fas fa-calendar-check"></i> give monthly</a>
         </div>
       </div>
     </section>
 
-    <!-- PREMIUM DONATE SECTION — masked PayPal mega button -->
+    <!-- PREMIUM DONATE SECTION — PayPal mega button -->
     <div class="donate-premium">
       <div class="donate-premium-left">
         <h2>your kindness<br>becomes a lifeline.</h2>
@@ -717,7 +727,7 @@
       </div>
     </div>
 
-    <!-- subtle donate reminder — always PayPal link -->
+    <!-- subtle donate reminder -->
     <div style="display: flex; justify-content: center; margin: 30px 0 20px;">
       <span style="background: #f1ebe5; padding: 12px 36px; border-radius: 100px; color: #0c4d4b; font-weight: 600;">
         <i class="fas fa-heart" style="color: #d6725e;"></i> 
@@ -726,13 +736,13 @@
       </span>
     </div>
 
-    <!-- FOOTER — clean, social icons ready -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-logo-small">
         <i class="fas fa-hand-holding-heart" style="color: #d6725e; margin-right: 6px;"></i> street help
       </div>
       <div class="footer-social">
-        <!-- you can replace '#' with your profile links later -->
+        <!-- replace '#' with actual profile links later -->
         <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

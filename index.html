@@ -59,11 +59,16 @@
   </script>
   
   <style>
-    /* [CSS remains exactly the same as previous version] */
+    /* [Previous CSS remains exactly the same] */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* Accounts for fixed header on scroll */
     }
 
     body {
@@ -128,6 +133,11 @@
       align-items: center;
       padding: 28px 0 20px;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      background: #fefcf7;
+      z-index: 100;
+      border-bottom: 1px solid #ecf3f1;
     }
     .nav-links {
       display: flex;
@@ -139,6 +149,7 @@
       color: #25504e;
       font-size: 1.05rem;
       transition: color 0.2s;
+      cursor: pointer;
     }
     .nav-links a:hover {
       color: #d15a4a;
@@ -573,7 +584,6 @@
       font-weight: 700;
     }
     
-    /* NEW: Guide section styling */
     .guide-section {
       background: white;
       border-radius: 48px;
@@ -608,6 +618,11 @@
       margin-bottom: 8px;
     }
 
+    /* Section anchors for smooth scrolling */
+    section[id], div[id] {
+      scroll-margin-top: 100px;
+    }
+
     @media (max-width: 800px) {
       .navbar { flex-direction: column; gap: 20px; }
       .hero-text h1 { font-size: 2.7rem; }
@@ -627,7 +642,7 @@
     <!-- BREADCRUMBS -->
     <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
       <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <a href="#home" itemprop="item"><span itemprop="name">Home</span></a>
         <meta itemprop="position" content="1">
       </span>
       <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin: 0 8px;"></i>
@@ -637,7 +652,7 @@
       </span>
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER with anchor links -->
     <header>
       <div class="navbar">
         <div class="logo-block">
@@ -645,15 +660,16 @@
             <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
           </div>
           <div class="logo-type">
-            street<span>help</span>
+            <a href="#home" style="text-decoration: none; color: inherit;">street<span>help</span></a>
           </div>
         </div>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="/" aria-current="page">home</a>
-          <a href="/our-impact">our impact</a>
-          <a href="/stories">stories</a>
-          <a href="/get-involved">get involved</a>
-          <a href="/contact">contact</a>
+          <a href="#home" aria-current="page">home</a>
+          <a href="#impact">our impact</a>
+          <a href="#stories">stories</a>
+          <a href="#get-involved">get involved</a>
+          <a href="#guide">guide</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <button class="btn-primary" aria-label="Donate via PayPal">
           <a href="https://www.paypal.com/ncp/payment/HHEHEQU9Q7AVQ" target="_blank" rel="noopener noreferrer sponsored">
@@ -664,8 +680,8 @@
     </header>
 
     <main id="main-content">
-      <!-- HERO SECTION - Natural keyword placement, no stuffing -->
-      <section class="hero" aria-labelledby="hero-heading">
+      <!-- HOME SECTION -->
+      <section id="home" class="hero" aria-labelledby="hero-heading">
         <div class="hero-text">
           <span class="hero-tag"><i class="fas fa-circle" style="color: #d6725e; font-size: 0.7rem; margin-right: 6px;" aria-hidden="true"></i> STREET HELP FOUNDATION</span>
           <h1 id="hero-heading">Connecting Vulnerable People with Community Support Across Kenya</h1>
@@ -718,8 +734,8 @@
         </div>
       </section>
 
-      <!-- IMPACT NUMBERS -->
-      <div class="stats-wrap" itemscope itemtype="https://schema.org/QuantitativeValue">
+      <!-- IMPACT SECTION -->
+      <div id="impact" class="stats-wrap" itemscope itemtype="https://schema.org/QuantitativeValue">
         <div class="stat-item">
           <div class="stat-num" itemprop="value">3.2k+</div>
           <div class="stat-label"><i class="fas fa-hand-holding-heart" aria-hidden="true" style="margin-right: 4px;"></i> individuals helped</div>
@@ -773,7 +789,7 @@
         </div>
       </div>
 
-      <!-- LOCAL LOCATIONS (Natural, not over-optimized) -->
+      <!-- LOCAL LOCATIONS -->
       <h2 class="section-title">Communities We Serve</h2>
       <p class="mission-statement">Our teams work alongside local partners to ensure culturally sensitive support reaches those who need it most.</p>
       
@@ -810,8 +826,8 @@
         </div>
       </div>
 
-      <!-- NEW COMPREHENSIVE GUIDE SECTION - 1200+ words for ranking -->
-      <div class="guide-section">
+      <!-- COMPREHENSIVE GUIDE SECTION -->
+      <div id="guide" class="guide-section">
         <h2>How to Access Community Support in Kenya: A Complete Guide</h2>
         <p style="font-size: 1.2rem; color: #36605d; margin-bottom: 30px;">If you or someone you know needs help, here's everything you need to know about finding assistance through StreetHelp and partner organizations.</p>
         
@@ -905,7 +921,7 @@
             </div>
             <div>
               <strong>Kisumu Office</strong><br>
-              Oginga Odinga Street<br>
+              Oginga Oginga Street<br>
               Mon-Fri: 8am-5pm<br>
               Tel: 0700 000 003
             </div>
@@ -920,7 +936,7 @@
       </div>
 
       <!-- STORIES SECTION -->
-      <section id="stories-section" style="scroll-margin-top: 30px;" aria-labelledby="stories-heading">
+      <section id="stories" style="scroll-margin-top: 30px;" aria-labelledby="stories-heading">
         <h2 id="stories-heading" class="section-title">Stories of Hope</h2>
         <p class="mission-statement">Every day, someone finds warmth, care, and a second chance through community support.</p>
         
@@ -952,8 +968,8 @@
         </div>
       </section>
 
-      <!-- GET INVOLVED -->
-      <section id="getinvolved-section" style="scroll-margin-top: 30px;" aria-labelledby="involved-heading">
+      <!-- GET INVOLVED SECTION -->
+      <section id="get-involved" style="scroll-margin-top: 30px;" aria-labelledby="involved-heading">
         <h2 id="involved-heading" class="section-title">Get Involved</h2>
         <p class="mission-statement">StreetHelp runs on collective heartpower. Join volunteers in providing immediate aid to those who need it most.</p>
         
@@ -962,13 +978,13 @@
             <div class="involved-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
             <h4>volunteer</h4>
             <p>Serve meals, mentor kids, or support medical outreach. Your time changes lives.</p>
-            <a href="/volunteer" class="donate-link"><i class="fas fa-heart" aria-hidden="true"></i> learn about volunteering</a>
+            <a href="#get-involved" class="donate-link"><i class="fas fa-heart" aria-hidden="true"></i> learn about volunteering</a>
           </div>
           <div class="involved-item">
             <div class="involved-icon"><i class="fas fa-box-open" aria-hidden="true"></i></div>
             <h4>donate goods</h4>
             <p>Blankets, food, school supplies. Your donations reach those in need quickly.</p>
-            <a href="/donate-goods" class="donate-link"><i class="fas fa-gift" aria-hidden="true"></i> give essentials</a>
+            <a href="#get-involved" class="donate-link"><i class="fas fa-gift" aria-hidden="true"></i> give essentials</a>
           </div>
           <div class="involved-item">
             <div class="involved-icon"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i></div>
@@ -993,8 +1009,8 @@
         </div>
       </div>
 
-      <!-- FAQ SECTION (concise) -->
-      <section style="margin: 60px 0 40px;" itemscope itemtype="https://schema.org/FAQPage">
+      <!-- FAQ SECTION -->
+      <section id="faq" style="margin: 60px 0 40px;" itemscope itemtype="https://schema.org/FAQPage">
         <h2 class="section-title">Common Questions</h2>
         
         <div style="display: grid; gap: 20px; margin-top: 30px;">
@@ -1022,7 +1038,7 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER with anchor links -->
     <footer class="footer">
       <div class="footer-logo-small">
         <i class="fas fa-hand-holding-heart" style="color: #d6725e; margin-right: 6px;" aria-hidden="true"></i> street help
@@ -1032,9 +1048,9 @@
       <div style="display: flex; gap: 40px; flex-wrap: wrap;">
         <nav aria-label="Footer navigation">
           <ul style="list-style: none; display: flex; gap: 20px;">
-            <li><a href="/about" style="text-decoration: none; color: #0c4d4b;">About</a></li>
-            <li><a href="/contact" style="text-decoration: none; color: #0c4d4b;">Contact</a></li>
-            <li><a href="/privacy" style="text-decoration: none; color: #0c4d4b;">Privacy</a></li>
+            <li><a href="#home" style="text-decoration: none; color: #0c4d4b;">Home</a></li>
+            <li><a href="#guide" style="text-decoration: none; color: #0c4d4b;">Guide</a></li>
+            <li><a href="#faq" style="text-decoration: none; color: #0c4d4b;">FAQ</a></li>
           </ul>
         </nav>
         
@@ -1053,5 +1069,45 @@
       </div>
     </footer>
   </div>
+
+  <!-- Smooth scroll enhancement for anchor links -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Highlight active nav link based on scroll position
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id], div[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.style.color = '#d6725e';
+        } else {
+          link.style.color = '#25504e';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
